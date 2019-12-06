@@ -58,6 +58,8 @@
 		function update() {
 			var idoc = document.getElementById('iframe').contentWindow.document;
 
+			console.log(editor.getValue());
+
 			idoc.open();
 			idoc.write(editor.getValue());
 			idoc.close();

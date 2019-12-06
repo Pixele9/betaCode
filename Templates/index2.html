@@ -15,7 +15,7 @@
 <body>
 	<div class="side-bar">
 		<h1 id="main-title">BetaCode</h1>
-		<button id="username-btn">Username</button>
+		<button id="username-btn">{{ request.user.username }}</button>
 		<h3 id="side-bar-title">Archivos</h3>
 		<ul id="file-list">
 			<li>ArchivoPrueba.py</li>
@@ -72,7 +72,7 @@
 	editor.setOptions({
 		fontSize: "16pt",
 		showLineNumbers: true,
-		showGutter: false, 
+		showGutter: true, 
 		vScrollBarAlwaysVisible:true,
 		enableBasicAutocompletion: false, enableLiveAutocompletion: false
 	});
@@ -87,8 +87,21 @@
 	// update()
 
 	function compile() {
-		let bodyContent = document.getElementsByTagName("body")
-		bodyContent[0].innerHTML
+		// let bodyContent = document.getElementsByTagName("body")
+		// bodyContent[0].innerHTML
+
+		let editor = document.getElementById("editor");
+		code = editor.innerText;
+
+		let numeroLineas = document.getElementsByClassName("ace_gutter-cell");
+		numeroLineas = numeroLineas.length;
+		numeroLineas=numeroLineas*2;
+
+		code = code.substring(numeroLineas, code.length)
+
+		console.log(code);
+
+
 
 		let url = "https://ide.geeksforgeeks.org/main.php"
 
