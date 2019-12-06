@@ -85,4 +85,5 @@ def registro(request):
                 return Response({"Error": "El usuario ya existe"}, status=HTTP_400_BAD_REQUEST)
 
 
-def 
+def inicio(request):
+    return render(request, "login.html")
