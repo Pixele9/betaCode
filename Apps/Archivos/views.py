@@ -121,4 +121,4 @@ hello("A")"""
     # print(req.json())
     res = req.json()
     print(res["output"])
-    return HttpResponse("Hola")
+    return HttpResponse(res["output"])

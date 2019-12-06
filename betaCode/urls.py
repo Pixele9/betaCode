@@ -24,12 +24,10 @@ router.register(r'tiposArchivo', views_archivos.TipoArchivoViewSet)
 router.register(r'usuariosArchivo', views_archivos.UsuarioArchivoViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('inicio', views_archivos.inicio),
-    path('registro', views_archivos.registro),
 
-    path('login/', include('Apps.Archivos.urls')),
+    path('', include('Apps.Archivos.urls')),
     
 
 ]

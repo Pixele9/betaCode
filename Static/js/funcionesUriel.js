@@ -10,7 +10,7 @@ iniciarSesion = () =>{
     }else{
         $.ajax({ 
             type: 'POST',
-            url: 'http://148.220.208.174:8000/inicio',
+            url: 'http://148.220.208.174:8000/',
             data: {username:username, password:password},
             success: function(data){
                 if (data["Exito"]){
@@ -75,9 +75,5 @@ registrar = () =>{
         }else{
             alert("Ingresa un correo válido");
         }
-
-
-        
     }
-    
 }
