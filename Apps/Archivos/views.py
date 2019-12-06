@@ -14,6 +14,8 @@ from rest_framework.status import (HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, HTT
 from Apps.Archivos.models import Archivo, tipoArchivo, UsuarioArchivo
 from Apps.Archivos.serializers import ArchivoSerializer, TipoArchivoSerializer, UsuarioArchivoSerializer
 from django.contrib.auth.decorators import login_required
+import requests
+from django.http import HttpResponse
 
 class ArchivoViewSet(viewsets.ModelViewSet):
     queryset = Archivo.objects.all()
@@ -96,5 +98,26 @@ def register(request):
 def forgot(request):
     return render(request, "pass.html")
 
-# def index(request):
-#     return render(request, "index.html")
+def index(request):
+    return render(request, "testEditor.html")
+
+def compiler(request):
+    url = "https://ide.geeksforgeeks.org/main.php"
+
+    code = """def hello(name):
+    print("Hello ", name)
+    
+hello("A")"""
+
+    data = {
+        "lang": "Python3",
+        "code": code,
+        "input": "",
+        "save": False
+    }
+
+    req = requests.post(url, data)
+    # print(req.json())
+    res = req.json()
+    print(res["output"])
+    return HttpResponse("Hola")

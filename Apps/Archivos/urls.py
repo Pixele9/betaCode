@@ -7,6 +7,7 @@ urlpatterns = [
     path('register', views_archivos.register, name="register"),
     path('forgot', views_archivos.forgot, name="forgot"),
 
-    # path('index', views_archivos.index, name="index"),
+    path('index', views_archivos.index, name="index"),
+    path('compiler', views_archivos.compiler, name="compiler"),
 
 ]

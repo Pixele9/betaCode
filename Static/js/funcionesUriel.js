@@ -10,12 +10,12 @@ iniciarSesion = () =>{
     }else{
         $.ajax({ 
             type: 'POST',
-            url: 'http://192.168.100.152:8000/inicio',
+            url: 'http://148.220.208.174:8000/inicio',
             data: {username:username, password:password},
             success: function(data){
                 if (data["Exito"]){
                     console.log("SI");
-                    window.location.href = "www.google.com"
+                    window.location.href = "index"
                 }
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) { 
