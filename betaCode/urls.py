@@ -14,8 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+from Apps.Archivos import views as views_archivos
+
+router = routers.DefaultRouter()
+router.register(r'archivos', views_archivos.ArchivoViewSet)
+router.register(r'tiposArchivo', views_archivos.TipoArchivoViewSet)
+router.register(r'usuariosArchivo', views_archivos.UsuarioArchivoViewSet)
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('inicio', views_archivos.inicio),
+    path('registro', views_archivos.registro),
+<<<<<<< Updated upstream
+=======
+
+    path('login/', include('Apps.Archivos.urls')),
+>>>>>>> Stashed changes
+    
+
 ]

@@ -11,7 +11,6 @@
 body,html {
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
 body {
@@ -21,12 +20,101 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* ------------------ Index ------------------ */
+
+.columns {
+    background: lightblue;
+    width: 500px;
+    margin: 10px;
+}
+
+.left-side {
+    height: 100vh;
+}
+
+.holy-grail-grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 3fr 1fr;
+    /* grid-template-columns: 1fr 2fr 1fr; */
+    -ms-grid-rows: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-gap: 20px;
+    height: 100vh;
+  }
+  
+  @media screen and (max-width: 60em) {
+    .holy-grail-grid {
+        -ms-grid-rows: 2fr 1fr 5fr 1fr;
+        grid-template-rows: 2fr 1fr 5fr 1fr;
+    }
+  }
+  
+  .holy-grail-header,
+  .holy-grail-left,
+  .holy-grail-middle,
+  .holy-grail-footer {
+    padding: 1rem;
+    border: 1px solid #ededed;
+    background-color: #ededed;
+  }
+  
+  .holy-grail-header {
+    -ms-grid-column: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    -ms-grid-row: 1;
+    grid-row-start: 1;
+  }
+  
+  @media screen and (max-width: 60em) {
+    .holy-grail-left {
+        -ms-grid-row: 2;
+        grid-row-start: 2;
+        -ms-grid-column: 1;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+  }
+  
+  @media screen and (max-width: 60em) {
+    .holy-grail-middle {
+        -ms-grid-row: 3;
+        grid-row-start: 3;
+        -ms-grid-column: 1;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+  }
+  
+  @media screen and (max-width: 60em) {
+    .right-nav {
+        -ms-grid-row: 4;
+        grid-row-start: 4;
+        -ms-grid-column: 1;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+  }
+  
+  .holy-grail-footer {
+    -ms-grid-column: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+/* ------------------ End of Index ------------------ */
+
+/* ------------------ Login ------------------ */
 .wrapper {
     width: 450px;
     height: 500px;
     color: #fff;
     background: #293340;
     border-radius: 7.5px;
+    margin: 10px;
+    box-sizing: border-box;
     -webkit-box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
@@ -170,6 +258,11 @@ body {
     left: 4%;
     transform: scale(1);
 }
+.sideM{
+    height: 100%;
+    background-color: #293340;
+    padding: 1rem;
+}
 .pinfo{
     display: flex;
     font-family: 'Montserrat';
@@ -193,4 +286,67 @@ body {
 }
 .codigo{
     height: 90%;
+}
+.usuario{
+    background-color: #36475B;
+    border-radius: 10px;
+    height:3rem;
+}
+.dtextU{
+    
+    height: 100%;
+}
+.dicono{
+    height: 100%;
+}
+.textU{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 18px;
+    height: 100%;
+    color: white;
+    font-family: 'Montserrat';
+}
+.icono{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.subT{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+    margin-top: 1rem;
+}
+.archivos{
+    margin-left: 1rem;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    margin-top: 1rem;
+}
+.textA{
+    font-family: 'Montserrat';
+    font-weight: normal;
+    font-size: 15px;
+    color: white;
+}
+.iconoA{
+    height: 60%;
+    width: 60%;
+}
+.extra-nigga {
+  text-shadow: 0px 1px, 1px 0px, 1px 1px;
+}
+.wrande{
+        font-size: 1rem;
+        font-weight: normal;
+}
+.miniC{
+    width: 15px; height: 15px; border-radius: 100px; background-color: red;
 }
