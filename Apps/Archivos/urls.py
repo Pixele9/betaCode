@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
-from Apps.Categorias import views as views_categorias
+from Apps.Archivos import views as views_archivos
 
 urlpatterns = [
-    # path('', views_categorias.obtenerCategorias, name="obtenerCategorias"),
+    path('', views_archivos.loginn, name="loginn"),
+    path('register', views_archivos.register, name="register"),
 
 ]

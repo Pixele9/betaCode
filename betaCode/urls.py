@@ -28,6 +28,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('inicio', views_archivos.inicio),
     path('registro', views_archivos.registro),
+
+    path('login/', include('Apps.Archivos.urls')),
     
 
 ]
