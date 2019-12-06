@@ -175,7 +175,6 @@ body {
                 #login-btn:focus {
                     background: rgb(43, 110, 185);
                 }
-
 .wrapper2 {
     width: 450px;
     height: 650px;
@@ -190,6 +189,17 @@ body {
 .wrapper3 {
     width: 450px;
     height: 400px;
+    color: #fff;
+    background: #293340;
+    border-radius: 7.5px;
+    -webkit-box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
+    margin-right: 1rem; margin-left: 1rem;
+}
+.wrapper4 {
+    width: 500px;
+    height: 700px;
     color: #fff;
     background: #293340;
     border-radius: 7.5px;
@@ -234,5 +244,41 @@ body {
     left: 10%;
     transform: scale(0.6);
 }
-
-/* ------------------ End of Login ------------------ */
+#circle6 {
+    position: fixed;
+    z-index: 1;
+    top: 500px;
+    left: -35px;
+    transform: scale(0.6);
+}
+#circle7 {
+    position: fixed;
+    z-index: 1;
+    top: 630px;
+    left: 4%;
+    transform: scale(1);
+}
+.pinfo{
+    display: flex;
+    font-family: 'Montserrat';
+    text-align: left;
+    margin-bottom: -1rem;
+}
+.dot{
+    height: 30px;
+    width: 30px;
+    background-color: #3E4F65;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: -2rem;
+    padding-top: .1rem;
+    box-sizing: border-box;
+}
+.pestañas{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-left: 1rem;
+}
+.codigo{
+    height: 90%;
+}
