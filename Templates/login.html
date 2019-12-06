@@ -17,7 +17,7 @@
 <body>
 	<div class="wrapper">
 		<form class="log-in-form">
-			{% csrftoken %}
+			{% csrf_token %}
 			<h1 class="text-center" id="betaCode-title">BetaCode</h1>
 			<div class="input-wrapper">
 				<input class="form-inputs" type="text" placeholder="Username" id="username">

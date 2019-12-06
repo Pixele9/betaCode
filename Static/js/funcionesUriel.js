@@ -3,7 +3,7 @@ iniciarSesion = () =>{
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    // console.log(username, password);
+    console.log(username, password);
 
     if(username=="" || password==""){
         alert("Es necesario llenar todos los campos");
@@ -19,10 +19,10 @@ iniciarSesion = () =>{
                 }
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                console.log(XMLHttpRequest.responseJSON.Error)
-                // console.log(textStatus)
-                // console.log(errorThrown)
-                alert(XMLHttpRequest.responseJSON.Error);
+                // console.log(XMLHttpRequest.responseJSON.Error)
+                // // console.log(textStatus)
+                // // console.log(errorThrown)
+                // alert(XMLHttpRequest.responseJSON.Error);
             } 
         });
     }
