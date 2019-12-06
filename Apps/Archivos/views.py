@@ -88,7 +88,6 @@ def registro(request):
                 print("e")
                 return Response({"Error": "El usuario ya existe"}, status=HTTP_400_BAD_REQUEST)
 
-
 def loginn(request):
     return render(request, "login.html")
 
@@ -98,9 +97,11 @@ def register(request):
 def forgot(request):
     return render(request, "pass.html")
 
+@login_required
 def index(request):
     return render(request, "testEditor.html")
 
+@login_required
 def compiler(request):
     url = "https://ide.geeksforgeeks.org/main.php"
 
