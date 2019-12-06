@@ -4,21 +4,18 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
-# from rest_framework.decorators import action
+from rest_framework.decorators import action
 from django.contrib.auth import authenticate, login
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
-from rest_framework.status import (
-    HTTP_400_BAD_REQUEST,
-    HTTP_404_NOT_FOUND,
-    HTTP_200_OK
-)
-from django.db.models import Q
-
+from rest_framework.status import (HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, HTTP_200_OK)
 from Apps.Archivos.models import Archivo, tipoArchivo, UsuarioArchivo
 from Apps.Archivos.serializers import ArchivoSerializer, TipoArchivoSerializer, UsuarioArchivoSerializer
+from django.contrib.auth.decorators import login_required
+import requests
+from django.http import HttpResponse
 
 class ArchivoViewSet(viewsets.ModelViewSet):
     queryset = Archivo.objects.all()
@@ -51,8 +48,9 @@ def inicio(request):
 
     login(request, user)
     token, created = Token.objects.get_or_create(user=user)
-    print(created, token)
-    return Response({ "id":str(user.id), "token":token.key}, status=HTTP_200_OK)
+
+    request.session['token'] = str(token)
+    return Response({"Exito":"Correcto"}, status=HTTP_200_OK)
 
 
 @csrf_exempt
@@ -66,13 +64,18 @@ def registro(request):
     password = request.data.get("password")
 
     if username=="" or first_name=="" or last_name=="" or email=="" or password=="":
+        print("a")
         return Response({"Error":"Favor de completar todos los campos"}, status=HTTP_400_BAD_REQUEST)
     else:
         if User.objects.filter(email=email).exists():
+            print("b")
             return Response({"Error": "El correo ya ha sido usado"}, status=HTTP_400_BAD_REQUEST)
         elif len(password)<6:
+            print("c")
             return Response({"Error": "La contraseña debe tener minimo 6 caracteres"}, status=HTTP_400_BAD_REQUEST)
         elif len(username)<4:
+            print(len(username))
+            print("d")
             return Response({"Error": "El usuario debe tener minimo 4 caracteres "}, status=HTTP_400_BAD_REQUEST)
         else:
             user, created = User.objects.get_or_create(username=username)
@@ -82,7 +85,40 @@ def registro(request):
                 user.save()
                 return Response({"Registrado": "Usuario registrado exitosamente"}, status=HTTP_200_OK)
             else:
+                print("e")
                 return Response({"Error": "El usuario ya existe"}, status=HTTP_400_BAD_REQUEST)
 
+def loginn(request):
+    return render(request, "login.html")
 
-def 
+def register(request):
+    return render(request, "signup.html")
+
+def forgot(request):
+    return render(request, "pass.html")
+
+@login_required
+def index(request):
+    return render(request, "testEditor.html")
+
+@login_required
+def compiler(request):
+    url = "https://ide.geeksforgeeks.org/main.php"
+
+    code = """def hello(name):
+    print("Hello ", name)
+    
+hello("A")"""
+
+    data = {
+        "lang": "Python3",
+        "code": code,
+        "input": "",
+        "save": False
+    }
+
+    req = requests.post(url, data)
+    # print(req.json())
+    res = req.json()
+    print(res["output"])
+    return HttpResponse("Hola")

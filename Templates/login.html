@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../Static/css/foundation.css">
-	<link rel="stylesheet" href="../Static/css/app.css">
-	<script src="actions.js" defer></script>
+	<link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+	<link rel="stylesheet" href="{% static 'css/app.css' %}">
+	<script src="{% static 'js/funcionesUriel.js' %}" defer></script>
+	<script src="{% static 'js/jquery.js' %}" defer></script>
 	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js" integrity="sha256-kRbW+SRRXPogeps8ZQcw2PooWEDPIjVQmN1ocWVQHRY=" crossorigin="anonymous"></script>
+
 	<title>Login</title>
 </head>
 <body>
@@ -16,18 +19,18 @@
 		<form class="log-in-form">
 			<h1 class="text-center" id="betaCode-title">BetaCode</h1>
 			<div class="input-wrapper">
-				<input class="form-inputs" type="text" placeholder="Username">
-				<input class="form-inputs" type="password" placeholder="Password">
-				<input id="login-btn" type="submit" class="button expanded" value="Log in"></input>
+				<input class="form-inputs" type="text" placeholder="Username" id="username">
+				<input class="form-inputs" type="password" placeholder="Password" id="password">
+				<button id="login-btn" type="button" class="button expanded" onclick="iniciarSesion()">Log in</button>
 			</div>
-			<p class="text-center"><a href="signup.html">Don't have an account yet? Register here.</a></p>
-			<p class="text-center" style="margin-top: -.5rem;"><a href="pass.html">Forgot your password?</a></p>
+			<p class="text-center"><a href="{% url 'register' %}">Don't have an account yet? Register here.</a></p>
+			<p class="text-center" style="margin-top: -.5rem;"><a href="{% url 'forgot' %}">Forgot your password?</a></p>
 		</form>
 	</div>
-	<img src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle1">
-	<img src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle2">
-	<img src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle3">
-	<img src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle4">
-	<img src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle5">
+	<img src="{% static 'img/gradient_circle.svg' %}" alt="page decoration" id="circle1">
+	<img src="{% static 'img/gradient_circle.svg' %}" alt="page decoration" id="circle2">
+	<img src="{% static 'img/gradient_circle.svg' %}" alt="page decoration" id="circle3">
+	<img src="{% static 'img/gradient_circle.svg' %}" alt="page decoration" id="circle4">
+	<img src="{% static 'img/gradient_circle.svg' %}" alt="page decoration" id="circle5">
 </body>
 </html>
