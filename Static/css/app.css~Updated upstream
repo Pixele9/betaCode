@@ -258,6 +258,11 @@ body {
     left: 4%;
     transform: scale(1);
 }
+.sideM{
+    height: 100%;
+    background-color: #293340;
+    padding: 1rem;
+}
 .pinfo{
     display: flex;
     font-family: 'Montserrat';
@@ -281,4 +286,67 @@ body {
 }
 .codigo{
     height: 90%;
+}
+.usuario{
+    background-color: #36475B;
+    border-radius: 10px;
+    height:3rem;
+}
+.dtextU{
+    
+    height: 100%;
+}
+.dicono{
+    height: 100%;
+}
+.textU{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 18px;
+    height: 100%;
+    color: white;
+    font-family: 'Montserrat';
+}
+.icono{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.subT{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+    margin-top: 1rem;
+}
+.archivos{
+    margin-left: 1rem;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    margin-top: 1rem;
+}
+.textA{
+    font-family: 'Montserrat';
+    font-weight: normal;
+    font-size: 15px;
+    color: white;
+}
+.iconoA{
+    height: 60%;
+    width: 60%;
+}
+.extra-nigga {
+  text-shadow: 0px 1px, 1px 0px, 1px 1px;
+}
+.wrande{
+        font-size: 1rem;
+        font-weight: normal;
+}
+.miniC{
+    width: 15px; height: 15px; border-radius: 100px; background-color: red;
 }
