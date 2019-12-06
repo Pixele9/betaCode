@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Apps.Archivos',
     'rest_framework',
     'rest_framework.authtoken',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+ASGI_APPLICATION = "olympia.routing.application"
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [CHANNEL_REDIS_HOST],
+            "symmetric_encryption_keys": [SECRET_KEY],
+        },
+    },
+}
 
 ROOT_URLCONF = 'betaCode.urls'
 
