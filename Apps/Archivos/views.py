@@ -97,11 +97,9 @@ def register(request):
 def forgot(request):
     return render(request, "pass.html")
 
-@login_required
 def index(request):
-    return render(request, "testEditor.html")
+    return render(request, "index2.html")
 
-@login_required
 def compiler(request):
     url = "https://ide.geeksforgeeks.org/main.php"
 
