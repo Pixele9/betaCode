@@ -85,6 +85,7 @@ def registro(request):
                 return Response({"Error": "El usuario ya existe"}, status=HTTP_400_BAD_REQUEST)
 
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 def 
 =======
@@ -94,3 +95,6 @@ def loginn(request):
 def register(request):
     return render(request, "signup.html")
 >>>>>>> Stashed changes
+=======
+def 
+>>>>>>> andres

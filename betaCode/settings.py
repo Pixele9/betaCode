@@ -128,11 +128,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'Static'),)
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 LOGIN_URL = 'inicio'
 =======
 LOGIN_URL = 'loginn'
 >>>>>>> Stashed changes
+=======
+LOGIN_URL = 'inicio'
+>>>>>>> andres
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',

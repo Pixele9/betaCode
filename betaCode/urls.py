@@ -28,11 +28,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('inicio', views_archivos.inicio),
     path('registro', views_archivos.registro),
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 
     path('login/', include('Apps.Archivos.urls')),
 >>>>>>> Stashed changes
+=======
+>>>>>>> andres
     
 
 ]
