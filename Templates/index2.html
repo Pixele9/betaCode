@@ -87,16 +87,16 @@
 	// update()
 
 	function compile() {
-		let editor = document.getElementById("editor");
-		code = editor.innerText;
+			let editor = document.getElementById("editor");
+			code = editor.innerText;
 
-		let numeroLineas = document.getElementsByClassName("ace_gutter-cell");
-		numeroLineas = numeroLineas.length;
-		numeroLineas=numeroLineas*2;
+			let numeroLineas = document.getElementsByClassName("ace_gutter-cell");
+			numeroLineas = numeroLineas.length;
+			numeroLineas=numeroLineas*2;
 
-		code = code.substring(numeroLineas, code.length)
+			code = code.substring(numeroLineas, code.length)
 
-		console.log(code);
+			console.log(code);
 
 
 
