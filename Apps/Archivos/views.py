@@ -16,6 +16,7 @@ from Apps.Archivos.serializers import ArchivoSerializer, TipoArchivoSerializer, 
 from django.contrib.auth.decorators import login_required
 import requests
 from django.http import HttpResponse
+import json
 
 class ArchivoViewSet(viewsets.ModelViewSet):
     queryset = Archivo.objects.all()
@@ -102,21 +103,24 @@ def index(request):
 
 def compiler(request):
     url = "https://ide.geeksforgeeks.org/main.php"
-
-    code = """def hello(name):
-    print("Hello ", name)
+    settings = request.POST.get("settings")
+    settings = json.loads(settings)
     
-hello("A")"""
 
-    data = {
-        "lang": "Python3",
-        "code": code,
-        "input": "",
-        "save": False
-    }
 
-    req = requests.post(url, data)
-    # print(req.json())
+    code = """ 
+def hello(name):
+	print("Hello ", name)
+	
+hello("Uriel")"""
+
+
+    settings['code'] = f"{code}"
+
+
+    print(settings["code"])
+    req = requests.post(url, settings)
+    print(req.json())
     res = req.json()
-    print(res["output"])
-    return HttpResponse(res["output"])
+    # print(res["output"])
+    return HttpResponse("Hola")
