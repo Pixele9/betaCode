@@ -89,7 +89,7 @@
 
 	function compile() {
 			let editor = document.getElementById("editor");
-			code = editor.innerText;
+			let code = editor.innerText;
 
 			let numeroLineas = document.getElementsByClassName("ace_gutter-cell");
 			numeroLineas = numeroLineas.length;
@@ -112,7 +112,7 @@
 
 		$.ajax({ 
             type: 'POST',
-            url: 'https://ide.geeksforgeeks.org/main.php',
+            url: '',
 			data: data,
 			cors: true,
 			dataType: "jsonp",
