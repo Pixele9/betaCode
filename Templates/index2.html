@@ -1,0 +1,126 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" integrity="sha256-CVkji/u32aj2TeC+D13f7scFSIfphw2pmu4LaKWMSY8=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.js" integrity="sha256-ywN/tj+hfHxivU0KIDrKwL6lu3A8rrt2vnPIRkiM9z8=" crossorigin="anonymous"></script> -->
+	<title>BetaCode</title>
+</head>
+<body>
+	<div class="side-bar">
+		<h1 id="main-title">BetaCode</h1>
+		<button id="username-btn">{{ request.user.username }}</button>
+		<h3 id="side-bar-title">Archivos</h3>
+		<ul id="file-list">
+			<li>ArchivoPrueba.py</li>
+			<li>ArchivoPrueba.py</li>
+			<li>ArchivoPrueba.py</li>
+			<li>ArchivoPrueba.py</li>
+		</ul>
+		<h3 id="side-bar-title">Colaboradores</h3>
+		<ul id="collab-list">
+			<li>Andrés</li>
+			<li>Uriel</li>
+			<li>Pablo</li>
+		</ul>
+	</div>
+	<!-- <div class="main-content"> -->
+		<div id='container'>
+			<div id="editor">
+			</div>
+
+			<button id="run-btn" onclick="compile()">&#9654;</button>
+			
+			<!-- <iframe id='iframe' frameBorder="0">
+			</iframe> -->
+	
+		</div>	
+	<!-- </div> -->
+</body>
+</html>
+
+<script>
+	// function update() {
+	// 	var idoc = document.getElementById('iframe').contentWindow.document;
+
+	// 	idoc.open();
+	// 	idoc.write(editor.getValue());
+	// 	idoc.close();
+	// }
+
+	function setupEditor() {
+		window.editor = ace.edit("editor");
+		editor.setTheme("ace/theme/cobalt");
+		editor.getSession().setMode("ace/mode/python");
+		//   editor.getSession().setMode("ace/mode/python");
+		editor.setValue(`def hello(name):
+		print("Hello ", name)`,1); //1 = moves cursor to end
+
+		editor.getSession().on('change', function() {
+			// update();
+		});
+
+		editor.focus();
+
+
+		editor.setOptions({
+			fontSize: "16pt",
+			showLineNumbers: true,
+			showGutter: true, 
+			vScrollBarAlwaysVisible:true,
+			enableBasicAutocompletion: true, 
+			enableLiveAutocompletion: true
+		});
+
+		editor.setShowPrintMargin(false);
+		editor.setBehavioursEnabled(false);
+	}
+
+	// function ready() {
+	// }
+	setupEditor()
+	// update()
+
+	function compile() {
+			let editor = document.getElementById("editor");
+			code = editor.innerText;
+
+			let numeroLineas = document.getElementsByClassName("ace_gutter-cell");
+			numeroLineas = numeroLineas.length;
+			numeroLineas=numeroLineas*2;
+
+			code = code.substring(numeroLineas, code.length)
+
+			console.log(code);
+
+
+
+		let url = "https://ide.geeksforgeeks.org/main.php"
+
+		data = {
+			"lang": "Python3",
+			"code": 'print("hola")',
+			"input": "",
+			"save": false
+		}
+
+		$.ajax({ 
+            type: 'POST',
+            url: 'https://ide.geeksforgeeks.org/main.php',
+			data: data,
+			cors: true,
+			dataType: "jsonp",
+            success: function(data){
+                console.log(data["output"])
+            }
+		});
+		
+	}
+	
+</script>

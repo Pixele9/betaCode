@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" integrity="sha256-CVkji/u32aj2TeC+D13f7scFSIfphw2pmu4LaKWMSY8=" crossorigin="anonymous"></script>
+	<title>betaCode</title>
+
+	<style>	
+		html,body { margin:0; padding:0; height:100%; width:100%; overflow: hidden;}
+
+		#editor {
+			height: 100%;
+			width:50%;
+			display:inline-block;
+			/* background: black; */
+		}
+
+		#container {
+			height:100%;
+			width:auto;
+			white-space : nowrap;
+			overflow : hidden;
+			position:relative;
+		}
+
+		#iframe {
+			height:100%;
+			display:inline-block; 
+			width:50%;
+		}
+
+		body {
+			color: red;
+			font-family: sans-serif;
+		}
+
+		/* disable tag matching */
+		.ace_editor .ace_marker-layer .ace_bracket { display: none }
+	</style>
+
+</head>
+<body onload="ready()">
+	<div id='container'>
+		<div id="editor">
+		</div>
+		
+		<iframe id='iframe' frameBorder="0">
+		</iframe>
+
+		<!-- let body = document.getElementsByTagName("body")
+		 body[0].innerHTML -->
+	</div>	  
+
+	<script>
+		function update() {
+			var idoc = document.getElementById('iframe').contentWindow.document;
+
+			console.log(editor.getValue());
+
+			idoc.open();
+			idoc.write(editor.getValue());
+			idoc.close();
+		}
+
+		function setupEditor() {
+		window.editor = ace.edit("editor");
+		editor.setTheme("ace/theme/monokai");
+		editor.getSession().setMode("ace/mode/python");
+		//   editor.getSession().setMode("ace/mode/python");
+		editor.setValue(`def hello(name):
+    print("Hello ", name)`,1); //1 = moves cursor to end
+
+		editor.getSession().on('change', function() {
+			update();
+		});
+
+		editor.focus();
+
+
+		editor.setOptions({
+			fontSize: "16pt",
+			showLineNumbers: true,
+			showGutter: false, 
+			vScrollBarAlwaysVisible:true,
+			enableBasicAutocompletion: false, enableLiveAutocompletion: false
+		});
+
+		editor.setShowPrintMargin(false);
+		editor.setBehavioursEnabled(false);
+		}
+
+		function ready() {
+			setupEditor()
+			update()
+		}
+		
+	</script>
+</body>
+</html>
