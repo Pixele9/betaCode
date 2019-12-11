@@ -11,6 +11,7 @@
 body,html {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -20,101 +21,17 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-/* ------------------ Index ------------------ */
-
-.columns {
-    background: lightblue;
-    width: 500px;
-    margin: 10px;
+.iLogo{
+    height: 100%;
+    width: 100%;
+    margin-bottom: 1rem;
 }
-
-.left-side {
-    height: 100vh;
-}
-
-.holy-grail-grid {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 3fr 1fr;
-    /* grid-template-columns: 1fr 2fr 1fr; */
-    -ms-grid-rows: 1fr 8fr 1fr;
-    grid-template-rows: 1fr 8fr 1fr;
-    grid-gap: 20px;
-    height: 100vh;
-  }
-  
-  @media screen and (max-width: 60em) {
-    .holy-grail-grid {
-        -ms-grid-rows: 2fr 1fr 5fr 1fr;
-        grid-template-rows: 2fr 1fr 5fr 1fr;
-    }
-  }
-  
-  .holy-grail-header,
-  .holy-grail-left,
-  .holy-grail-middle,
-  .holy-grail-footer {
-    padding: 1rem;
-    border: 1px solid #ededed;
-    background-color: #ededed;
-  }
-  
-  .holy-grail-header {
-    -ms-grid-column: 1;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    -ms-grid-row: 1;
-    grid-row-start: 1;
-  }
-  
-  @media screen and (max-width: 60em) {
-    .holy-grail-left {
-        -ms-grid-row: 2;
-        grid-row-start: 2;
-        -ms-grid-column: 1;
-        grid-column-start: 1;
-        grid-column-end: 4;
-    }
-  }
-  
-  @media screen and (max-width: 60em) {
-    .holy-grail-middle {
-        -ms-grid-row: 3;
-        grid-row-start: 3;
-        -ms-grid-column: 1;
-        grid-column-start: 1;
-        grid-column-end: 4;
-    }
-  }
-  
-  @media screen and (max-width: 60em) {
-    .right-nav {
-        -ms-grid-row: 4;
-        grid-row-start: 4;
-        -ms-grid-column: 1;
-        grid-column-start: 1;
-        grid-column-end: 4;
-    }
-  }
-  
-  .holy-grail-footer {
-    -ms-grid-column: 1;
-    grid-column-start: 1;
-    grid-column-end: 4;
-  }
-
-/* ------------------ End of Index ------------------ */
-
-/* ------------------ Login ------------------ */
 .wrapper {
     width: 450px;
     height: 500px;
     color: #fff;
     background: #293340;
     border-radius: 7.5px;
-    margin: 10px;
-    box-sizing: border-box;
     -webkit-box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
@@ -124,6 +41,20 @@ body {
         font-family: 'Montserrat';
         font-weight: bold;
         font-size: 45px;
+    }
+    #betaCode-titleM{
+        font-family: 'Montserrat';
+        font-weight: bold;
+        color: white;
+        font-size: 40px;
+    }
+    #betaCode-titleS{
+        font-family: 'Montserrat';
+        font-weight: bold;
+        color: white;
+        font-size: 30px;
+        margin-top: 1rem;
+        padding-right: 3rem;
     }
 
     .input-wrapper {
@@ -246,33 +177,46 @@ body {
 }
 #circle6 {
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     top: 500px;
     left: -35px;
     transform: scale(0.6);
 }
 #circle7 {
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     top: 630px;
     left: 4%;
     transform: scale(1);
 }
+.sideM{
+    height: 100%;
+    background-color: #293340;
+    padding: 1rem;
+
+}
+.damb{
+    display: flex;
+    height: 50px;
+    width: 100%;    
+    align-items: center;
+    justify-content: center;
+    background-color: #293340;
+}
+    .amborgesa{
+        background-color: transparent;
+        height: 25px;
+        width: 25px;
+    }
+    .Iamb{
+        width: 90%;
+        height: 90%;
+    }
 .pinfo{
     display: flex;
     font-family: 'Montserrat';
     text-align: left;
     margin-bottom: -1rem;
-}
-.dot{
-    height: 30px;
-    width: 30px;
-    background-color: #3E4F65;
-    border-radius: 50%;
-    display: inline-block;
-    margin-left: -2rem;
-    padding-top: .1rem;
-    box-sizing: border-box;
 }
 .pestañas{
     border-top-left-radius: 10px;
@@ -281,4 +225,243 @@ body {
 }
 .codigo{
     height: 90%;
+}
+.usuario{
+    background-color: #36475B;
+    border-radius: 10px;
+    height:3rem;
+}
+#oUsuario{
+    display: none;
+    position: absolute; 
+    left: 70px;
+    top: 175px; 
+    width: 180px; 
+    height: 115px;
+    background-color: #28374C; 
+    border: none;  
+    text-align: center;
+    padding-top: .5rem;
+    border-radius: 7.5px;
+    z-index: 1;
+
+}
+    .oWhite{
+        margin-top: .5rem;
+        height: 2.5rem;
+    }
+    .oRed{
+        height: 2.5rem;
+        margin-top: -1rem;
+    }
+        .iconoB{
+            padding-top: .6rem;
+            padding-left: .3rem;
+            height: 80%;
+            width: 80%;
+        }
+        .iconoR{
+            padding-top: .6rem;
+            padding-left: .3rem;
+            height: 80%;
+            width: 80%;
+        }
+        .textW{
+            color: white;
+            padding-top: .5rem;
+            font-family: 'Montserrat';
+            font-weight: bold;
+        }
+        .textR{
+            color: #FC3535;
+            padding-top: .5rem;
+            font-family: 'Montserrat';
+            font-weight: bold;
+        }
+.dtextU{
+
+    height: 100%;
+}
+.dicono{
+    height: 100%;
+}
+.colaborador{
+    height: 2rem;
+}
+.textU{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 18px;
+    height: 100%;
+    color: white;
+    font-family: 'Montserrat';
+}
+.icono{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.subT{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+    margin-top: 1rem;
+}
+.archivos{
+    margin-left: 1rem;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    margin-top: 1rem;
+}
+.textA{
+    font-family: 'Montserrat';
+    font-weight: normal;
+    font-size: 15px;
+    color: white;
+}
+    .iconoA{
+        
+        height: 60%;
+        width: 60%;
+    }
+    .fileN{
+        height: 2rem;
+    }
+    #oFile{
+        display: none;
+        position: absolute; 
+        left: 50px; 
+        top: 210px; 
+        width: 195px; 
+        height: 205px; 
+        background-color: #28374C; 
+        border: none;  
+        text-align: center;
+        padding-top: .5rem;
+        border-radius: 7.5px;
+    }
+    #mFile{
+        display: flex;
+        position: fixed; 
+        left: 50px; 
+        top: 210px; 
+        width: 195px; 
+        height: 205px; 
+        background-color: #28374C; 
+        border: none;  
+        text-align: center;
+        padding-top: .5rem;
+        border-radius: 7.5px;
+    }
+    .iconoD{
+        padding-top: .6rem;
+        padding-left: .3rem;
+        height: 70%;
+        width: 70%;
+    }
+    .iconoC{
+        padding-top: .6rem;
+        padding-left: .3rem;
+        height: 80%;
+        width: 80%;
+    }
+    .iconoDe{
+        padding-top: .6rem;
+        padding-left: .3rem;
+        height: 70%;
+        width: 70%;
+    }
+
+.extra-nigga {
+  text-shadow: 0px 1px, 1px 0px, 1px 1px;
+}
+.wrande{
+        font-size: 1rem;
+        font-weight: normal;
+}
+.miniC{
+    width: 15px; height: 15px; border-radius: 100px; background-color: red;
+}
+
+.dot{
+    height: 30px;
+    width: 30px;
+    background-color: #3E4F65;
+    border-radius: 50%;
+    display: inline-block;
+    padding-top: .1rem;
+    box-sizing: border-box;
+}
+
+.codigo{
+    height: 100%;
+    padding: 1rem;
+}
+
+
+/* Custom Select Menu */
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: #293340;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #293340;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
 }
