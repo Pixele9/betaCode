@@ -50,7 +50,7 @@
 		</div>
 		<div class="row fileN" id="1">
 			<div class="columns	large-9 dtextU text-left">
-				<p class="textA">hola.py</p>
+				<p class="textA">example.py</p>
 			</div>
 			<div class="columns large-3 dicono text-right">
 				<img class="iconoA bajar" id="I2" src="../Static/img/ic_keyboard_arrow_right_24px.svg">
@@ -58,7 +58,7 @@
 		</div>
 		<div class="row fileN" id="2">
 			<div class="columns	 large-9 dtextU text-left">
-				<p class="textA">conexion.py</p>
+				<p class="textA">conection.py</p>
 			</div>
 			<div class="columns large-3 dicono text-right">
 				<img class="iconoA bajar" src="../Static/img/ic_keyboard_arrow_right_24px.svg">
@@ -66,7 +66,7 @@
 		</div>	
 		<div class="row fileN" id="3">
 			<div class="columns	 large-9 dtextU text-left">
-				<p class="textA">ejemplo.py</p>
+				<p class="textA">finalv2.py</p>
 			</div>
 			<div class="columns large-3 dicono text-right">
 				<img class="iconoA bajar" src="../Static/img/ic_keyboard_arrow_right_24px.svg">
@@ -94,14 +94,14 @@
 				<p id="betaCode-titleS">BetaCode</p>
 			</div>
 		</div>
-		<section class="columns large-12 codigo" id="Acodigo" style="background-color: #36475B">
-			<div class="row expanded">
-				<div class="columns small-3 large-1 pestañas" style="background-color: #293340; color: white; padding-top: .5rem;">Pestaña</div>
-				<div class="columns small-3 large-9 medium-5"></div>
+		<section class="columns large-12 codigo" id="Acodigo" style="padding: 1rem 2rem 1rem 2rem;background-color: #36475B; z-index: 6">
+			<div class="row large-12">
+				<div class="columns small-4 large-1 medium-3 pestañas" style="background-color: #293340; color: white; padding-top: .5rem;">File</div>
+				<div class="columns small-2 large-9 medium-5"></div>
 				<div class="columns small-6 large-2 medium-4">
-					<div class="custom-select" style="width:108%;">
+					<div class="custom-select" style="width:109%;">
 						<select>
-							<option value="0">Lenguaje</option>
+							<option value="0">Language</option>
 							<option value="1">Python</option>
 							<option value="2">Javascript</option>
 							<option value="3">Java</option>
@@ -110,25 +110,25 @@
 					</div>
 				</div>
 			</div>
-			<div class="columns large-12 codigo" style="background-color: #293340; padding:1rem;">
-				<div class="row large-12" style="height: 70%;">
-					<div class="" style="background-color: #36475B; color: white;padding:1rem; width: 100%; font-family: 'Lucida';">
+			<div class="expanded row large-12 medium-12 small-12" style="padding-top:1rem;padding-bottom: 1rem;height: 95%;background-color: #293340;">
+				<div class="columns large-12 medium-12 small-12" style="height: 70%; width: 100%; margin-bottom: -3rem">
+					<div class="escribirC" style="background-color: #36475B; color: white;padding:1rem; width: 100%; height: 100%;">
 						<p>Type Here!</p>
 					</div>
 				</div>
-				<div class="row large-12 consola" style="background-color: black; height: 25%; padding: 1rem;">
-					<p style="color: white; font-family: 'Lucida Console', arial;">Windows PowerShell
-Copyright (C) Microsoft Corporation. Todos los derechos reservados.
-
-Prueba la nueva tecnología PowerShell multiplataforma https://aka.ms/pscore6
-
-PS C:\Users\psama\Documents\UAQ\CD\proyectoPlacas>
-</p>
+				<div class="expanded row large-12 medium-12 small-12" style="padding-right: 0rem; padding-left: 1rem;">
+					<div class="large-8 medium-8 small-6 columns" style="background-color: black; height: 100%; padding: 1rem;width: 100%;">
+						<p style="color: white; font-family: 'Lucida Console', arial;">></p>
+					</div>
+					<div class="large-4 medium-4 small-6 columns" style="height: 100%; width: 100%;">
+						<textarea style="height: 100%;width: 100%; color: white;font-family: 'Lucida Console',arial; background-color: #3B3B98;" placeholder="Type your inputs here..."></textarea>
+					</div>
 				</div>
 			</div>
+			<button id="run-btn" onclick="compile()">&#9654;</button>
 		</section>
 	</div>
-	<div class="row" id="oFile" style="z-index: 1">
+	<div class="row" id="oFile" style="z-index: 7">
 		<div class="medium-12 medium-centered oWhite" onclick="shareF()" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
 			<div class="row">
 				<div class="medium-4 small-4 columns "><img class="iconoB" src="../Static/img/ic_group_add_24px.svg"></div>
@@ -154,8 +154,8 @@ PS C:\Users\psama\Documents\UAQ\CD\proyectoPlacas>
 			</div>
 		</div>
 	</div>
-	<img src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle6">
-	<img src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle7">
+	<img class="hide-for-small-only" src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle6">
+	<img class="hide-for-small-only" src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle7">
 	<script type="text/javascript">
 		var idFile;
 		document.getElementById("bUsuario").onclick = function() { 

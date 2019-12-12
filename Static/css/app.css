@@ -177,23 +177,24 @@ body {
 }
 #circle6 {
     position: fixed;
-    z-index: 0;
+    z-index: 3;
     top: 500px;
     left: -35px;
     transform: scale(0.6);
 }
 #circle7 {
     position: fixed;
-    z-index: 0;
+    z-index: 3;
     top: 630px;
     left: 4%;
     transform: scale(1);
 }
 .sideM{
     height: 100%;
-    background-color: #293340;
     padding: 1rem;
-
+    box-shadow: 5px 5px 10px 6px rgba(0,0,0,0.5);
+    z-index: 3;
+    background: linear-gradient(140deg, rgba(62,79,101,1) 0%, rgba(31,40,51,1) 100%);
 }
 .damb{
     display: flex;
@@ -222,14 +223,14 @@ body {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-left: 1rem;
+    box-shadow: 1px 0px 0px -4px rgba(0,0,0,0.75);
 }
-.codigo{
-    height: 90%;
-}
+
 .usuario{
     background-color: #36475B;
     border-radius: 10px;
     height:3rem;
+    box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
 }
 #oUsuario{
     display: none;
@@ -345,6 +346,7 @@ body {
         text-align: center;
         padding-top: .5rem;
         border-radius: 7.5px;
+        z-index: 7;
     }
     #mFile{
         display: flex;
@@ -401,7 +403,6 @@ body {
 
 .codigo{
     height: 100%;
-    padding: 1rem;
 }
 
 
@@ -464,4 +465,27 @@ body {
 
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
+}
+#run-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 150px;
+        z-index: 2;
+        position: absolute;
+        bottom: 230px;
+        right: 60px;
+        background-color: lightseagreen;
+        border: none;
+        font-size: 24px;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+        box-shadow: 0px 0px 25px 0px rgb(0, 0, 0);
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: gray;
+  opacity: 3; /* Firefox */
+}
+#Acodigo{
+    z-index: 6;
 }
