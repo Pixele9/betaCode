@@ -89,6 +89,7 @@ def registro(request):
                 print("e")
                 return Response({"Error": "El usuario ya existe"}, status=HTTP_400_BAD_REQUEST)
 
+@login_required
 def loginn(request):
     return render(request, "login.html")
 
@@ -106,21 +107,13 @@ def compiler(request):
     settings = request.POST.get("settings")
     settings = json.loads(settings)
     
-
-
-    code = """ 
-def hello(name):
-	print("Hello ", name)
-	
-hello("Uriel")"""
-
-
-    settings['code'] = f"{code}"
-
+    code = request.POST.get("code2Compile")
+    print(settings)
+    settings['code'] = code.replace(u'\xa0', u' ')
 
     print(settings["code"])
     req = requests.post(url, settings)
     print(req.json())
     res = req.json()
-    # print(res["output"])
-    return HttpResponse("Hola")
+    print(res["output"])
+    return HttpResponse(res["output"])

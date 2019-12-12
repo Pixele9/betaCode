@@ -10,7 +10,7 @@ iniciarSesion = () =>{
     }else{
         $.ajax({ 
             type: 'POST',
-            url: 'http://148.220.208.174:8000/',
+            url: 'http://148.220.209.116:8000/',
             data: {username:username, password:password},
             success: function(data){
                 if (data["Exito"]){

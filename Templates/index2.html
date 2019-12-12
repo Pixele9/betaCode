@@ -70,7 +70,9 @@
 		editor.getSession().setMode("ace/mode/python");
 		//   editor.getSession().setMode("ace/mode/python");
 		editor.setValue(`def hello(name):
-		print("Hello ", name)`,1); //1 = moves cursor to end
+	print("Hello ",name)
+	
+hello("Andres")`,1); //1 = moves cursor to end
 
 		editor.getSession().on('change', function() {
 			// update();
@@ -106,7 +108,7 @@
 		code = code.substring(numeroLineas, code.length)
 		console.log(code);
 
-		let url = "http://148.220.208.174:8000/compiler";
+		let url = "http://148.220.209.116:8000/compiler";
 		let token = getCookie('csrftoken');
 
 		settings = {
@@ -119,9 +121,13 @@
 		$.ajax({ 
             type: 'POST',
             url: url,
-            data: {settings:JSON.stringify(settings), csrfmiddlewaretoken: token},
+            data: {
+				settings:JSON.stringify(settings), 
+				csrfmiddlewaretoken: token,
+				code2Compile: code
+			},
             success: function(data){
-				console.log(data);
+				console.log("%c"+data, "font-size:30px;color:green;");
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) { 
             } 
