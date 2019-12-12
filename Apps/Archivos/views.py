@@ -100,7 +100,8 @@ def forgot(request):
     return render(request, "pass.html")
 
 def index(request):
-    return render(request, "index2.html")
+    return render(request, "main.html")
+    # return render(request, "index2.html")
 
 def compiler(request):
     url = "https://ide.geeksforgeeks.org/main.php"

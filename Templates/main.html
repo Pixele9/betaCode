@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,39 +7,42 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
   	<link href="http://allfont.es/allfont.css?fonts=lucida-console" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="../Static/css/foundation.css">
-	<link rel="stylesheet" href="../Static/css/app.css">
+	<!-- <link rel="stylesheet" href=" ../Static/css/foundation.css"> -->
+	<link rel="stylesheet" href="{% static 'css/foundation.css' %}">
 	<script	src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
-	<script src="../Static/js/foundation.js" defer></script>
+	<script src="{% static 'js/foundation.js' %} " defer></script>
 	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js" integrity="sha256-kRbW+SRRXPogeps8ZQcw2PooWEDPIjVQmN1ocWVQHRY=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" integrity="sha256-CVkji/u32aj2TeC+D13f7scFSIfphw2pmu4LaKWMSY8=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" href="{% static 'css/app.css' %}">
 	<title>BetaCode</title>
 </head>
 <body>
 	<section class="sideM columns small-8 medium-3 large-2 hide-for-small-only" id="bar">
 		<div class="row small-12 show-for-small-only" onclick="Hmenu()" id="back">
-			<div><span class="dot text-center"><img src="../Static/img/ic_arrow_back_24px.svg"></span></div>
+			<div><span class="dot text-center"><img src="{% static 'img/ic_arrow_back_24px.svg' %}"></span></div>
 		</div>
 		<div class="rows">
-			<img class="iLogo" src="../Static/img/logo.png">
+			<img class="iLogo" src="{% static 'img/logo.png' %}">
 		</div>
 		<div class="row usuario" id="bUsuario">
 			<div class="columns large-3 small-3 medium-3 dicono">
-				<img class="icono" src="../Static/img/ic_account_circle_24px.svg">
+				<img class="icono" src="{% static 'img/ic_account_circle_24px.svg' %}">
 			</div>
 			<div class="columns large-9 dtextU">
 				<p class="textU">Andres Leal</p>
 				<div class="row" id="oUsuario">
 					<div class="medium-12 medium-centered oWhite" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
 						<div class="row">
-							<div class="medium-4 small-4 columns "><img class="iconoB" src="../Static/img/ic_person_outline_24px.svg"></div>
+							<div class="medium-4 small-4 columns "><img class="iconoB" src="{% static 'img/ic_person_outline_24px.svg' %}"></div>
 							<div class="medium-8 small-6 columns text-left textW">Account</div>
 						</div>
 					</div>
 					<div class="medium-12 medium-centered oRed" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
 						<div class="row">
-							<div class="medium-4 small-4 columns "><img class="iconoR" src="../Static/img/ic_exit_to_app_24px.svg"></div>
+							<div class="medium-4 small-4 columns "><img class="iconoR" src="{% static 'img/ic_exit_to_app_24px.svg' %} "></div>
 							<div class="medium-8 small-6 columns text-left textR">Log out</div>
 						</div>
 					</div>
@@ -53,7 +57,7 @@
 				<p class="textA">example.py</p>
 			</div>
 			<div class="columns large-3 dicono text-right">
-				<img class="iconoA bajar" id="I2" src="../Static/img/ic_keyboard_arrow_right_24px.svg">
+				<img class="iconoA bajar" id="I2" src="{% static 'img/ic_keyboard_arrow_right_24px.svg' %}">
 			</div>
 		</div>
 		<div class="row fileN" id="2">
@@ -61,7 +65,7 @@
 				<p class="textA">conection.py</p>
 			</div>
 			<div class="columns large-3 dicono text-right">
-				<img class="iconoA bajar" src="../Static/img/ic_keyboard_arrow_right_24px.svg">
+				<img class="iconoA bajar" src="{% static 'img/ic_keyboard_arrow_right_24px.svg' %}">
 			</div>
 		</div>	
 		<div class="row fileN" id="3">
@@ -69,7 +73,7 @@
 				<p class="textA">finalv2.py</p>
 			</div>
 			<div class="columns large-3 dicono text-right">
-				<img class="iconoA bajar" src="../Static/img/ic_keyboard_arrow_right_24px.svg">
+				<img class="iconoA bajar" src="{% static 'img/ic_keyboard_arrow_right_24px.svg' %}">
 			</div>
 		</div>
 		<div class="rows">
@@ -88,7 +92,7 @@
 	<div style="width: 100%; height: 100%; z-index: 1;">
 		<div class="show-for-small-only text-center damb" id="hamborgesa">
 			<div class="amborgesa columns small-2" onclick="Mmenu()">
-				<img class="Iamb" src="../Static/img/ic_menu_24px.svg">
+				<img class="Iamb" src="{% static 'img/ic_menu_24px.svg' %}">
 			</div>
 			<div class="columns small-10 text-center">
 				<p id="betaCode-titleS">BetaCode</p>
@@ -112,8 +116,11 @@
 			</div>
 			<div class="expanded row large-12 medium-12 small-12" style="padding-top:1rem;padding-bottom: 1rem;height: 95%;background-color: #293340;">
 				<div class="columns large-12 medium-12 small-12" style="height: 70%; width: 100%; margin-bottom: -3rem">
-					<div class="escribirC" style="background-color: #36475B; color: white;padding:1rem; width: 100%; height: 100%;">
-						<p>Type Here!</p>
+					<div class="escribirC" style="background-color: #36475B; color: white; width: 100%; height: 100%;">
+						<div id='container'>
+							<div id="editor">
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="expanded row large-12 medium-12 small-12" style="padding-right: 0rem; padding-left: 1rem;">
@@ -131,31 +138,32 @@
 	<div class="row" id="oFile" style="z-index: 7">
 		<div class="medium-12 medium-centered oWhite" onclick="shareF()" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
 			<div class="row">
-				<div class="medium-4 small-4 columns "><img class="iconoB" src="../Static/img/ic_group_add_24px.svg"></div>
+				<div class="medium-4 small-4 columns "><img class="iconoB" src="{% static 'img/ic_group_add_24px.svg' %}"></div>
 				<div class="medium-8 small-7 columns text-left textW">Share</div>
 			</div>
 		</div>
 		<div class="medium-12 medium-centered oWhite" onclick="downF()" style="margin-top: -.8rem;" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
 			<div class="row">
-				<div class="medium-4 small-4 columns"><img class="iconoD" src="../Static/img/ic_file_download_24px.svg"></div>
+				<div class="medium-4 small-4 columns"><img class="iconoD" src="{% static 'img/ic_file_download_24px.svg' %}"></div>
 				<div class="medium-8 small-7 columns text-left textW">Download</div>
 			</div>
 		</div>
 		<div class="medium-12 medium-centered oWhite" onclick="leaveF()" style="margin-top: -.8rem;" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
 			<div class="row">
-				<div class="medium-4 small-4 columns "><img class="iconoC" src="../Static/img/ic_cloud_off_24px.svg"></div>
+				<div class="medium-4 small-4 columns "><img class="iconoC" src="{% static 'img/ic_cloud_off_24px.svg' %}"></div>
 				<div class="medium-8 small-7 columns text-left textW">Leave</div>
 			</div>
 		</div>
 		<div class="medium-12 medium-centered oRed" onclick="deleteF()" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
 			<div class="row">
-				<div class="medium-4 small-4 columns"><img class="iconoDe" src="../Static/img/ic_delete_24px.svg"></div>
+				<div class="medium-4 small-4 columns"><img class="iconoDe" src="{% static 'img/ic_delete_24px.svg' %}"></div>
 				<div class="medium-8 small-7 columns text-left textR">Delete</div>
 			</div>
 		</div>
 	</div>
-	<img class="hide-for-small-only" src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle6">
-	<img class="hide-for-small-only" src="../Static/img/gradient_circle.svg" alt="page decoration" id="circle7">
+	<img class="hide-for-small-only" src="{% static 'img/gradient_circle.svg' %}" alt="page decoration" id="circle6">
+	<img class="hide-for-small-only" src="{% static 'img/gradient_circle.svg' %}" alt="page decoration" id="circle7">
+	<script defer src="{% static 'js/funcionesAndres.js' %}"></script>
 	<script type="text/javascript">
 		var idFile;
 		document.getElementById("bUsuario").onclick = function() { 
