@@ -489,3 +489,7 @@ body {
 #Acodigo{
     z-index: 6;
 }
+
+#console-div {
+    overflow-y: scroll;
+}
