@@ -60,7 +60,7 @@ function compile() {
 	code = code.substring(numeroLineas, code.length)
 	console.log(code);
 
-	let url = "http://148.220.209.116:8000/compiler";
+	let url = "http://192.168.0.101:8000/compiler";
 	let token = getCookie('csrftoken');
 
 	settings = {

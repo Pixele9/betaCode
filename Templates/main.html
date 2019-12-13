@@ -12,7 +12,7 @@
 	<script	src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
-	<script src="{% static 'js/foundation.js' %} " defer></script>
+	<script src="{% static 'js/foundation.js' %}" defer></script>
 	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js" integrity="sha256-kRbW+SRRXPogeps8ZQcw2PooWEDPIjVQmN1ocWVQHRY=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" integrity="sha256-CVkji/u32aj2TeC+D13f7scFSIfphw2pmu4LaKWMSY8=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -28,13 +28,10 @@
 			<img class="iLogo" src="{% static 'img/logo.png' %}">
 		</div>
 		<div class="row usuario" id="bUsuario">
-			<div class="columns large-3 small-3 medium-3 dicono">
-				<img class="icono" src="{% static 'img/ic_account_circle_24px.svg' %}">
-			</div>
-			<div class="columns large-9 dtextU">
+			<div class="columns large-12 dtextU">
 				<p class="textU">Andres Leal</p>
 				<div class="row" id="oUsuario">
-					<div class="medium-12 medium-centered oWhite" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
+					<div class="large-12 medium-12 medium-centered oWhite" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
 						<div class="row">
 							<div class="medium-4 small-4 columns "><img class="iconoB" src="{% static 'img/ic_person_outline_24px.svg' %}"></div>
 							<div class="medium-8 small-6 columns text-left textW">Account</div>
@@ -42,7 +39,7 @@
 					</div>
 					<div class="medium-12 medium-centered oRed" onmouseover="style.backgroundColor='#36475B'" onmouseout="style.backgroundColor='#28374C'">
 						<div class="row">
-							<div class="medium-4 small-4 columns "><img class="iconoR" src="{% static 'img/ic_exit_to_app_24px.svg' %} "></div>
+							<div class="medium-4 small-4 columns "><img class="iconoR" src="{% static 'img/ic_exit_to_app_24px.svg' %}"></div>
 							<div class="medium-8 small-6 columns text-left textR">Log out</div>
 						</div>
 					</div>
@@ -98,7 +95,7 @@
 				<p id="betaCode-titleS">BetaCode</p>
 			</div>
 		</div>
-		<section class="columns large-12 codigo" id="Acodigo" style="padding: 1rem 2rem 1rem 2rem;background-color: #36475B; z-index: 6">
+		<section class="columns large-12 small-12 medium-12 codigo" id="Acodigo" style="padding: 1rem 2rem 1rem 2rem;background-color: #36475B; z-index: 6; height: 100%;">
 			<div class="row large-12">
 				<div class="columns small-4 large-1 medium-3 pestañas" style="background-color: #293340; color: white; padding-top: .5rem;">File</div>
 				<div class="columns small-2 large-9 medium-5"></div>
@@ -114,23 +111,32 @@
 					</div>
 				</div>
 			</div>
-			<div class="expanded row large-12 medium-12 small-12" style="padding-top:1rem;padding-bottom: 1rem;height: 95%;background-color: #293340;">
-				<div class="columns large-12 medium-12 small-12" style="height: 70%; width: 100%; margin-bottom: -3rem">
-					<div class="escribirC" style="background-color: #36475B; color: white; width: 100%; height: 100%;">
-						<div id='container'>
-							<div id="editor">
+			<div class="expanded row large-12 medium-12 small-12 bCode">
+				<div class="row large-12 medium-12 small-12" style="height: 100%">
+					<div class="columns large-12 medium-12 small-12" id="arriba" style="padding-left: 0rem; padding-right: 0rem; height: 70%; width: 100%; margin-bottom: 0rem">
+						<div class="escribirC" style="background-color: #36475B; color: white; width: 100%; height: 100%;">
+							<div id='container'>
+								<div id="editor">
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="expanded row large-12 medium-12 small-12" style="padding-right: 0rem; padding-left: 1rem;">
-					<div id="console-div" class="large-8 medium-8 small-6 columns" style="background-color: black; height: 100%; padding: 1rem;width: 100%;">
-						<p id="console-output"style="color: white; font-family: 'Lucida Console', arial;">>  </p>
+					<div class="row large-12 medium-12 small-12" id="abajo" style="padding-right: 0rem; padding-left: 0rem; height: 30%">
+						<div id="console-div" class="columns large-8 medium-8 small-12" style="box-sizing: border-box;background-color: black; padding: 1rem; margin-bottom: 0rem; width: 100%; height: 100%;">
+							<p id="console-output"style="color: white; font-family: 'Lucida Console', arial;">>312312312
+							312
+						231
+					123123
+				2
+			12edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns edium-4 small-4 columns 
+		123
+	123</p>
+						</div>
+						<div class="columns large-4 medium-4 small-12" style="padding-right: 0rem;padding-left: 0rem;" >
+							<textarea style="height: 100%;width: 100%; color: white;font-family: 'Lucida Console',arial; background-color: #3B3B98;" placeholder="Type your inputs here..."></textarea>
+						</div>
 					</div>
-					<div class="large-4 medium-4 small-6 columns" style="height: 100%; width: 100%;">
-						<textarea style="height: 100%;width: 100%; color: white;font-family: 'Lucida Console',arial; background-color: #3B3B98;" placeholder="Type your inputs here..."></textarea>
-					</div>
-				</div>
+				</div>			
 			</div>
 			<button id="run-btn" onclick="compile()">&#9654;</button>
 		</section>
@@ -166,6 +172,62 @@
 	<script defer src="{% static 'js/funcionesAndres.js' %}"></script>
 	<script type="text/javascript">
 		var idFile;
+		function pequeno() {
+			document.getElementById("arriba").style.height = "50%";
+			document.getElementById("abajo").style.height = "45%";
+			document.getElementById("console-div").style.marginBottom= '1rem';
+			document.getElementById("console-div").style.height= '130px';
+			document.getElementById("run-btn").style.bottom= '93%';
+			document.getElementById("run-btn").style.right= '25px';
+			document.getElementById("run-btn").style.width= '40px';
+			document.getElementById("run-btn").style.height= '40px';
+		}
+
+		function mediano() {
+			document.getElementById("arriba").style.height = "70%";
+			document.getElementById("abajo").style.height = "30%";
+			document.getElementById("console-div").style.marginBottom = '0rem';
+			document.getElementById("console-div").style.height= '100%';
+			document.getElementById("run-btn").style.bottom= '230px';			
+			document.getElementById("run-btn").style.right= '60px';
+			document.getElementById("run-btn").style.width= '50px';
+			document.getElementById("run-btn").style.height= '50px';
+		}
+
+		function grande() {
+			document.getElementById("arriba").style.height = "70%";
+			document.getElementById("abajo").style.height = "30%";
+			document.getElementById("console-div").style.marginBottom = '0rem';
+			document.getElementById("console-div").style.height= '100%';
+			document.getElementById("run-btn").style.bottom= '250px';
+			document.getElementById("run-btn").style.right= '60px';
+			document.getElementById("run-btn").style.width= '50px';
+			document.getElementById("run-btn").style.height= '50px';
+		}
+
+		function screen_resize() {
+			var h = parseInt(window.innerHeight);
+			var w = parseInt(window.innerWidth);
+
+				if(w <= 500) {
+		        pequeno();
+		    } else if(w > 500 && w <=850) {
+		        mediano();
+		    } else {
+		        grande();
+		    }
+
+		}
+// if window resize call responsive function
+$(window).resize(function(e) {
+	screen_resize();
+});
+// call responsive function on default :)
+$(document).ready(function(e) {
+	screen_resize();
+});
+
+
 		document.getElementById("bUsuario").onclick = function() { 
 			if( document.getElementById("oUsuario").style.display == "flex"){
 				document.getElementById("oUsuario").style.display = "none";
