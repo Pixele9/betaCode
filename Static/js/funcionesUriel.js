@@ -54,7 +54,7 @@ registrar = () =>{
             if(password==password2){
                 $.ajax({ 
                     type: 'POST',
-                    url: 'http://http://192.168.1.89:8000/registro',
+                    url: 'http://192.168.1.89:8000/registro',
                     // url: 'http://192.168.100.152:8000/registro',
                     data: {username:username, first_name:first_name, last_name:last_name, email:email, password:password},
                     success: function(data){
