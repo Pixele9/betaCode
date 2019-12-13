@@ -25,7 +25,7 @@
 			<div><span class="dot text-center"><img src="{% static 'img/ic_arrow_back_24px.svg' %}"></span></div>
 		</div>
 		<div class="rows">
-			<img class="iLogo" src="{% static 'img/logo.png' %}">
+			<img class="iLogo" src="{% static 'img/betaCodeLogo.png' %}">
 		</div>
 		<div class="row usuario" id="bUsuario">
 			<div class="columns large-3 small-3 medium-3 dicono">
@@ -104,9 +104,9 @@
 				<div class="columns small-2 large-9 medium-5"></div>
 				<div class="columns small-6 large-2 medium-4">
 					<div class="custom-select" style="width:109%;">
-						<select>
+						<select id="lang-selection">
 							<option value="0">Language</option>
-							<option value="1">Python</option>
+							<option value="1" selected>Python</option>
 							<option value="2">Javascript</option>
 							<option value="3">Java</option>
 							<option value="4">C#</option>
@@ -124,8 +124,20 @@
 					</div>
 				</div>
 				<div class="expanded row large-12 medium-12 small-12" style="padding-right: 0rem; padding-left: 1rem;">
-					<div id="console-div" class="large-8 medium-8 small-6 columns" style="background-color: black; height: 100%; padding: 1rem;width: 100%;">
+					<!-- CONSOLE -->
+					<!-- <div id="console-div" class="large-8 medium-8 small-6 columns" style="background-color: black; height: 100%; padding: 1rem;width: 100%;">
 						<p id="console-output"style="color: white; font-family: 'Lucida Console', arial;">>  </p>
+					</div> -->
+					<!-- CONSOLE -->
+					<div class="container">
+						<form class="four-oh-four-form">
+							<input type="text" class="404-input">
+						</form>
+						
+						<div class="terminal">
+							<p class="prompt">Enter 'run' to compile the code and see the output here.</p>
+							<p class="prompt output new-output"></p>
+						</div>
 					</div>
 					<div class="large-4 medium-4 small-6 columns" style="height: 100%; width: 100%;">
 						<textarea style="height: 100%;width: 100%; color: white;font-family: 'Lucida Console',arial; background-color: #3B3B98;" placeholder="Type your inputs here..."></textarea>
@@ -296,3 +308,129 @@ document.addEventListener("click", closeAllSelect);
 </script> 
 	</body>
 </html> 
+
+<style>
+@-webkit-keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* body {
+  background-color: black;
+} */
+
+.four-oh-four {
+  position: relative;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 2;
+  background-color: black;
+  transition: opacity 300ms ease-out;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.four-oh-four .dJAX_internal {
+  opacity: 0.0;
+}
+.four-oh-four form, .four-oh-four input {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: black;
+}
+
+.terminal {
+  position: relative;
+  padding: 4rem;
+}
+.terminal .prompt {
+  color: #1ff042;
+  display: block;
+  font-family: 'AndaleMono', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.15em;
+  white-space: pre-wrap;
+  text-shadow: 0 0 2px rgba(31, 240, 66, 0.75);
+  line-height: 1;
+  margin-bottom: 0.75em;
+}
+.terminal .prompt:before {
+  content: '> ';
+  display: inline-block;
+}
+.terminal .new-output {
+  display: inline-block;
+}
+.terminal .new-output:after {
+  display: inline-block;
+  vertical-align: -0.15em;
+  width: 0.75em;
+  height: 1em;
+  margin-left: 5px;
+  background: #1ff042;
+  box-shadow: 1px 1px 1px rgba(31, 240, 66, 0.65), -1px -1px 1px rgba(31, 240, 66, 0.65), 1px -1px 1px rgba(31, 240, 66, 0.65), -1px 1px 1px rgba(31, 240, 66, 0.65);
+  -webkit-animation: cursor-blink 1.25s steps(1) infinite;
+  -moz-animation: cursor-blink 1.25s steps(1) infinite;
+  animation: cursor-blink 1.25s steps(1) infinite;
+  content: '';
+}
+
+.kittens p {
+  letter-spacing: 0;
+  opacity: 0;
+  line-height: 1rem;
+}
+
+.kitten-gif {
+  margin: 20px;
+  max-width: 300px;
+}
+
+.four-oh-four-form {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.container {
+	/* width: 70%;
+	height: 90%; */
+	overflow-y: auto;
+	background-color: #000;
+}
+
+</style>

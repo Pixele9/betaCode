@@ -10,7 +10,8 @@ iniciarSesion = () =>{
     }else{
         $.ajax({ 
             type: 'POST',
-            url: 'http://148.220.209.116:8000/',
+            url: 'http://192.168.1.89:8000/',
+            // url: 'http://148.220.209.116:8000/',
             data: {username:username, password:password},
             success: function(data){
                 if (data["Exito"]){
@@ -18,7 +19,8 @@ iniciarSesion = () =>{
                     window.location.href = "index"
                 }
             },
-            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("No furula")
                 // console.log(XMLHttpRequest.responseJSON.Error)
                 // // console.log(textStatus)
                 // // console.log(errorThrown)
@@ -52,7 +54,8 @@ registrar = () =>{
             if(password==password2){
                 $.ajax({ 
                     type: 'POST',
-                    url: 'http://192.168.100.152:8000/registro',
+                    url: 'http://http://192.168.1.89:8000/registro',
+                    // url: 'http://192.168.100.152:8000/registro',
                     data: {username:username, first_name:first_name, last_name:last_name, email:email, password:password},
                     success: function(data){
                         console.log(data);

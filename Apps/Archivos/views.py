@@ -89,7 +89,7 @@ def registro(request):
                 print("e")
                 return Response({"Error": "El usuario ya existe"}, status=HTTP_400_BAD_REQUEST)
 
-@login_required
+@csrf_exempt
 def loginn(request):
     return render(request, "login.html")
 
@@ -99,10 +99,12 @@ def register(request):
 def forgot(request):
     return render(request, "pass.html")
 
+@csrf_exempt
 def index(request):
     return render(request, "main.html")
     # return render(request, "index2.html")
 
+@csrf_exempt
 def compiler(request):
     url = "https://ide.geeksforgeeks.org/main.php"
     settings = request.POST.get("settings")
@@ -117,4 +119,7 @@ def compiler(request):
     print(req.json())
     res = req.json()
     print(res["output"])
-    return HttpResponse(res["output"])
+    if res["cmpError"] == '':
+        return HttpResponse(res["output"])
+    else:
+        return HttpResponse(res["cmpError"])
