@@ -16,10 +16,9 @@ function getCookie(name) {
 }
 
 function setupEditor() {
-	// let editor = document.getElementById("editor")
 	window.editor = ace.edit("editor");
 	editor.setTheme("ace/theme/cobalt");
-	editor.getSession().setMode("ace/mode/python");
+	// editor.getSession().setMode("ace/mode/python");
 	//   editor.getSession().setMode("ace/mode/python");
 	editor.setValue(`def hello(name):
 	print("Hello ",name)
@@ -39,11 +38,43 @@ hello("Andres")`,1); //1 = moves cursor to end
 		showGutter: true, 
 		vScrollBarAlwaysVisible:true,
 		enableBasicAutocompletion: true, 
-		enableLiveAutocompletion: true
+		enableLiveAutocompletion: true,
 	});
 
 	editor.setShowPrintMargin(false);
 	editor.setBehavioursEnabled(false);
+
+	// let selector =  document.getElementById("lang-selection")
+	// let lang = selector.options[selector.selectedIndex].value
+	
+	// console.log("LANG: " +lang)
+
+	// switch(parseInt(lang)) {
+	// 	case 1:
+	// 		// Python3
+	// 		editor.getSession().setMode("ace/mode/python");
+	// 		alert("Cambio a PYTHON")
+	// 		break;
+	// 	case 2:
+	// 		// JS
+	// 		editor.getSession().setMode("ace/mode/javascript");
+	// 		alert("Cambio a JS")
+	// 		break;
+	// 	case 3:
+	// 		// Java
+	// 		editor.getSession().setMode("ace/mode/java");
+	// 		alert("Cambio a JAVA")
+	// 		break;
+	// 	case 4:
+	// 		// C#
+	// 		editor.getSession().setMode("ace/mode/csharp");
+	// 		alert("Cambio a C#")
+	// 		break;
+	// 	default:
+	// 		editor.getSession().setMode("ace/mode/python");
+	// 		break;
+	// }
+
 }
 
 // function ready() {
@@ -52,21 +83,22 @@ setupEditor()
 // update()
 
 function compile() {
-	let editor = document.getElementById("editor");
-	code = editor.innerText;
+	let editorDiv = document.getElementById("editor");
+	code = editorDiv.innerText;
 	let numeroLineas = document.getElementsByClassName("ace_gutter-cell");
 	numeroLineas = numeroLineas.length;
 	numeroLineas=numeroLineas*2;
 	code = code.substring(numeroLineas, code.length)
 	console.log(code);
 
-	let selector =  document.getElementById("lang-selection")
-	let lang = selector.options[selector.selectedIndex].value
-
 	// let url = "http://148.220.209.116:8000/compiler";
 	let url = "http://192.168.1.89:8000/compiler";
 	// let token = getCookie('csrftoken');
 	let token = getCookie('csrfmiddlewaretoken');
+
+	let selector =  document.getElementById("lang-selection")
+	let lang = selector.options[selector.selectedIndex].value
+	
 	console.log("LANG: " +lang)
 
 	switch(parseInt(lang)) {
@@ -82,7 +114,25 @@ function compile() {
 		case 2:
 			// JS
 			settings = {
+				"lang": "html/js",
+				"input": "",
+				"code": code,
+				"save": false
+			}
+			break;
+		case 3:
+			// Java
+			settings = {
 				"lang": "Java",
+				"input": "",
+				"code": code,
+				"save": false
+			}
+			break;
+		case 4:
+			// C#
+			settings = {
+				"lang": "Csharp",
 				"input": "",
 				"code": code,
 				"save": false
@@ -112,12 +162,11 @@ function compile() {
 			console.log("%c"+data, "font-size:30px;color:green;");
 			// let console_out = document.getElementById("console-output")
 			// console_out.innerText = data
-			$('.terminal').append('<p class="prompt">' + data + '</p><p class="prompt output new-output"></p>');
-			resetOut()
+			// $('.terminal').append('<p class="prompt">' + data + '</p><p class="prompt output new-output"></p>');
+			resetOut(data)
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) { 
 			$('.terminal').append('<p class="prompt">' + errorThrown + '</p><p class="prompt output new-output"></p>');
-			// resetOut()
 		} 
 	});
 	
@@ -145,21 +194,15 @@ $('.four-oh-four-form').on('submit', function(e){
   var href;
 
 	if (val === 'run'){
-		// showKittens();
 		compile()
   	}else {
-    	resetForm();
+		resetForm();
   	}
 });
 
-function resetForm(withKittens){
+function resetForm(){
   var message = "Sorry that command is not recognized."
   var input = $('.404-input');
-
-  if (withKittens){
-    $('.kittens').removeClass('kittens');
-    message = "Huzzzzzah Kittehs!"
-  }
 
   $('.new-output').removeClass('new-output');
   input.val('');
@@ -170,97 +213,15 @@ function resetForm(withKittens){
 //   ), {duration: 100}
 }
 
-function resetOut(){
+function resetOut(resp){
 	var input = $('.404-input');
   
 	$('.new-output').removeClass('new-output');
-	// input.val('');
-	$('.terminal').append('<p class="prompt">' + '</p><p class="prompt output new-output"></p>');
+	input.val('');
+	$('.terminal').append('<p class="prompt">' + resp + '</p><p class="prompt output new-output"></p>');
 }
-
-	function showKittens(){
-		$('.terminal').append("<div class='kittens'>"+
-								 "<p class='prompt'>	                             ,----,         ,----,                                          ,---,</p>" +
-								 "<p class='prompt'>       ,--.                ,/   .`|       ,/   .`|                     ,--.              ,`--.' |</p>" +
-								 "<p class='prompt'>   ,--/  /|    ,---,     ,`   .'  :     ,`   .'  :     ,---,.        ,--.'|   .--.--.    |   :  :</p>" +
-								 "<p class='prompt'>,---,': / ' ,`--.' |   ;    ;     /   ;    ;     /   ,'  .' |    ,--,:  : |  /  /    '.  '   '  ;</p>" +
-								 "<p class='prompt'>:   : '/ /  |   :  : .'___,/    ,'  .'___,/    ,'  ,---.'   | ,`--.'`|  ' : |  :  /`. /  |   |  |</p>" +
-								 "<p class='prompt'>|   '   ,   :   |  ' |    :     |   |    :     |   |   |   .' |   :  :  | | ;  |  |--`   '   :  ;</p>" +
-								 "<p class='prompt'>'   |  /    |   :  | ;    |.';  ;   ;    |.';  ;   :   :  |-, :   |   \\ | : |  :  ;_     |   |  '</p>" +
-								 "<p class='prompt'>|   ;  ;    '   '  ; `----'  |  |   `----'  |  |   :   |  ;/| |   : '  '; |  \\  \\    `.  '   :  |</p>" +
-								 "<p class='prompt'>:   '   \\   |   |  |     '   :  ;       '   :  ;   |   :   .' '   ' ;.    ;   `----.   \\ ;   |  ;</p>" +
-								 "<p class='prompt'>'   : |.  \\ |   |  '     '   :  |       '   :  |   '   :  ;/| '   : |  ; .'  /  /`--'  /  `--..`;  </p>" +
-								 "<p class='prompt'>|   | '_\\.' '   :  |     ;   |.'        ;   |.'    |   |    \\ |   | '`--'   '--'.     /  .--,_   </p>" +
-								 "<p class='prompt'>'   : |     ;   |.'      '---'          '---'      |   :   .' '   : |         `--'---'   |    |`.  </p>" +
-								 "<p class='prompt'>;   |,'     '---'                                  |   | ,'   ;   |.'                    `-- -`, ; </p>" +
-								 "<p class='prompt'>'---'                                              `----'     '---'                        '---`'</p>" +
-								 "<p class='prompt'>                                                              </p></div>");
-
-		
-		var lines = $('.kittens p');
-		$.each(lines, function(index, line){
-			setTimeout(function(){
-				$(line).css({
-					"opacity": 1
-				});
-
-				textEffect($(line))
-			}, index * 100);
-		});
-
-		$('.new-output').velocity(
-			'scroll'
-		), {duration: 100}
-
-		setTimeout(function(){
-			var gif;
-
-			$.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=kittens', function(result){
-				gif = result.data.image_url;
-				$('.terminal').append('<img class="kitten-gif" src="' + gif + '"">');
-				resetForm(true);
-			});
-		}, (lines.length * 100) + 1000);
-	}
-
-	function textEffect(line){
-		var alpha = [';', '.', ',', ':', ';', '~', '`'];
-		var animationSpeed = 10;
-		var index = 0;
-		var string = line.text();
-		var splitString = string.split("");
-		var copyString = splitString.slice(0);
-
-		var emptyString = copyString.map(function(el){
-		    return [alpha[Math.floor(Math.random() * (alpha.length))], index++];
-		})
-
-		emptyString = shuffle(emptyString);
-
-		$.each(copyString, function(i, el){
-		    var newChar = emptyString[i];
-		    toUnderscore(copyString, line, newChar);
-
-		    setTimeout(function(){
-		      fromUnderscore(copyString, splitString, newChar, line);
-		    },i * animationSpeed);
-		  })
-	}
-
-	function toUnderscore(copyString, line, newChar){
-		copyString[newChar[1]] = newChar[0];
-		line.text(copyString.join(''));
-	}
-
-	function fromUnderscore(copyString, splitString, newChar, line){
-		copyString[newChar[1]] = splitString[newChar[1]];
-		line.text(copyString.join(""));
-	}
-
-
-	function shuffle(o){
-	    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-	    return o;
-	};
-
 // END TERMINAL
+
+function downloadCode() {
+
+}

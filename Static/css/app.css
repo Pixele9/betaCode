@@ -219,13 +219,24 @@ body {
     text-align: left;
     margin-bottom: -1rem;
 }
+/*INICIO DE MODIFICADO*/
 .pestañas{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-left: 1rem;
     box-shadow: 1px 0px 0px -4px rgba(0,0,0,0.75);
+    background-color: #002240;
+    color: white;
+    padding-top: .5rem;
+    height: 2rem;
 }
-
+#arriba{
+    padding-left: 0rem; padding-right: 0rem; height: 70%; width: 100%; margin-bottom: 0rem
+}
+.escribirC{
+    background-color: #36475B; color: white; width: 100%; height: 100%;
+}
+/*FIN DE MODIFICADO*/
 .usuario{
     background-color: #36475B;
     border-radius: 10px;
@@ -279,21 +290,24 @@ body {
             font-family: 'Montserrat';
             font-weight: bold;
         }
-.dtextU{
-
-    height: 100%;
-}
 .dicono{
     height: 100%;
+    padding-top: .3rem;
 }
+/*INICIO MODIFICADO*/
+.lateral{
+    width: 100%; height: 100%; z-index: 1;
+}
+/*FIN MODIFICADO*/
 .colaborador{
     height: 2rem;
 }
 .textU{
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     font-size: 18px;
+    font-weight: bold;
     height: 100%;
     color: white;
     font-family: 'Montserrat';
@@ -387,14 +401,17 @@ body {
         font-size: 1rem;
         font-weight: normal;
 }
+
+/*MODIFICADO*/
 .miniC{
     width: 15px; height: 15px; border-radius: 100px; background-color: red;
 }
+/*MODIFICADO*/
 
 .dot{
     height: 30px;
     width: 30px;
-    background-color: #3E4F65;
+    background-color: #26313E;
     border-radius: 50%;
     display: inline-block;
     padding-top: .1rem;
@@ -402,10 +419,12 @@ body {
 }
 
 .codigo{
+    padding: 1rem 2rem 1rem 2rem;
+    background-color: #36475B;
+    z-index: 6;
+    height: 100%;
     height: 100%;
 }
-
-
 /* Custom Select Menu */
 /* The container must be positioned relative: */
 .custom-select {
@@ -466,22 +485,6 @@ body {
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
-#run-btn {
-        width: 50px;
-        height: 50px;
-        border-radius: 150px;
-        z-index: 2;
-        position: absolute;
-        bottom: 230px;
-        right: 60px;
-        background-color: lightseagreen;
-        border: none;
-        font-size: 24px;
-        color: #fff;
-        outline: none;
-        cursor: pointer;
-        box-shadow: 0px 0px 25px 0px rgb(0, 0, 0);
-}
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: gray;
   opacity: 3; /* Firefox */
@@ -489,7 +492,184 @@ body {
 #Acodigo{
     z-index: 6;
 }
-
+.bCode{
+    /*padding-bottom: 1rem;*/
+    height: 90%;
+    background-color: #293340;
+    box-shadow: 0px 5px 24px -4px rgba(0,0,0,0.75);
+}
 #console-div {
     overflow-y: scroll;
+    margin-top: 1rem;
+    box-sizing: border-box;background-color: black; padding: 1rem; margin-bottom: 0rem; width: 100%; height: 100%;
 }
+/*ScrollBar de la consola*/
+#console-div::-webkit-scrollbar-track {
+  background: black; 
+}
+ 
+/* Handle */
+#console-div::-webkit-scrollbar-thumb {
+  background: #808080; 
+}
+
+/* Handle on hover */
+#console-div::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+/*ScrollBar de la consola*/
+
+@-webkit-keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* body {
+  background-color: black;
+} */
+
+.four-oh-four {
+  position: relative;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 2;
+  background-color: black;
+  transition: opacity 300ms ease-out;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.four-oh-four .dJAX_internal {
+  opacity: 0.0;
+}
+.four-oh-four form, .four-oh-four input {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: black;
+}
+
+.terminal {
+  position: relative;
+  box-sizing: border-box;
+}
+.terminal .prompt {
+  color: #1ff042;
+  display: block;
+  font-family: 'AndaleMono', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.15em;
+  white-space: pre-wrap;
+  text-shadow: 0 0 2px rgba(31, 240, 66, 0.75);
+  line-height: 1;
+  margin-bottom: 0.75em;
+}
+.terminal .prompt:before {
+  content: '> ';
+  display: inline-block;
+}
+.terminal .new-output {
+  display: inline-block;
+}
+.terminal .new-output:after {
+  display: inline-block;
+  vertical-align: -0.15em;
+  width: 0.75em;
+  height: 1em;
+  margin-left: 5px;
+  background: #1ff042;
+  box-shadow: 1px 1px 1px rgba(31, 240, 66, 0.65), -1px -1px 1px rgba(31, 240, 66, 0.65), 1px -1px 1px rgba(31, 240, 66, 0.65), -1px 1px 1px rgba(31, 240, 66, 0.65);
+  -webkit-animation: cursor-blink 1.25s steps(1) infinite;
+  -moz-animation: cursor-blink 1.25s steps(1) infinite;
+  animation: cursor-blink 1.25s steps(1) infinite;
+  content: '';
+}
+
+.kittens p {
+  letter-spacing: 0;
+  opacity: 0;
+  line-height: 1rem;
+}
+
+.kitten-gif {
+  margin: 20px;
+  max-width: 300px;
+}
+
+.four-oh-four-form {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+.container {
+    background-color: #000;
+}
+
+.terminal {
+    /* overflow-y: scroll; */
+    height: 130px;
+}
+/*MODIFICADO*/
+.imgG{
+    width: 80%;
+    height: 95%;
+}
+#download-btn {
+    transform: translateY(-.6rem) scale(0.6);
+}
+/*MODIFICADO*/
+/*ScrollBar del editor*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #002240; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #003455; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+/*Scrollbar del editor*/
